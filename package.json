@@ -1,0 +1,50 @@
+{
+  "name": "text-autolink",
+  "author": "Glenn Jones",
+  "version": "0.0.1",
+  "description": "An tool for adding HTML links and tags to plain text",
+  "keywords": [
+    "text",
+    "autolinker",
+    "twitter",
+    "facebook",
+    "tweet",
+    "indieweb"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/transmat/text-autolink.git"
+  },
+  "main": "lib/interface.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": {
+    "hapi": "4.x",
+    "joi": "3.x",
+    "handlebars": "1.3.x",
+    "hapi-swagger": ">= 0.1.12",
+    "marked": "0.3.x",
+    "request": "~2.33.0",
+    "charset": "0.0.1",
+    "buffer-concat": "0.0.1",
+    "iconv-lite": "~0.2.11",
+    "entities": "~0.3.0",
+    "hoek": "~2.4.1",
+    "async": "~0.9.0",
+    "chrono-node": "~0.1.10",
+    "moment": "~2.8.2",
+    "email-addresses": "~1.1.1",
+    "valid-url": "~1.0.9"
+  },
+  "devDependencies": {
+    "grunt": "0.4.1",
+    "grunt-contrib-jshint": "0.1.1",
+    "grunt-mocha-test": "0.4.0",
+    "mocha": "1.10.0",
+    "chai": "1.6.0"
+  },
+  "engines": {
+    "node": ">= 0.10.24"
+  }
+}
