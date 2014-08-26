@@ -1,5 +1,5 @@
 {
-  "name": "text-autolink",
+  "name": "text-autolinker",
   "author": "Glenn Jones",
   "version": "0.0.1",
   "description": "An tool for adding HTML links and tags to plain text",
@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/transmat/text-autolink.git"
+    "url": "http://github.com/transmat/text-autolinker.git"
   },
   "main": "lib/interface.js",
   "scripts": {
