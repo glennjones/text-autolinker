@@ -24,14 +24,14 @@ Converts text into HTML, by automatically linking the URLs and twitter elements 
 
 ## Use
 
-  var autolinker = require('autolinker');
-  var options = {
-    text: 'Meeting @glennjones today at 4:10pm',
-    publishedDate: '2014-08-08'
-  };
-  autolinker.parse(options, function(err, result){
-    // do something with data
-  });
+	var autolinker = require('autolinker');
+	var options = {
+		text: 'Meeting @glennjones today at 4:10pm',
+		publishedDate: '2014-08-08'
+	};
+	autolinker.parse(options, function(err, result){
+		// do something with data
+	});
 
 
 
@@ -54,85 +54,85 @@ Converts text into HTML, by automatically linking the URLs and twitter elements 
 ## Twitter usersname and hashtags parsing
 The module will parse  Twitter `@usersname` and `#hashtags` from the text. It wraps these items in `<a>` tags with classes. The text "@glennjones likes #javascript" is parsed into:
 
-  <a class=\"auto-link h-x-username\" href=\"https://twitter.com/glennjones\">&#x40;glennjones</a> likes <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#javascript&amp;src=hash\">&#x23;javascript</a>
+	<a class=\"auto-link h-x-username\" href=\"https://twitter.com/glennjones\">&#x40;glennjones</a> likes <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#javascript&amp;src=hash\">&#x23;javascript</a>
 
 The parser also provides metadata for usersname and hashtags:
 
-  {
-    "html": "<a class=\"auto-link h-x-username\" href=\"https://twitter.com/glennjones\">&#x40;glennjones</a> likes <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#javascript&amp;src=hash\">&#x23;javascript</a>",
-    "account": [
-      {
-        "match": "@glennjones",
-        "username": "glennjones",
-        "domain": "twitter.com"
-      }
-    ],
-    "category": [
-      "javascript"
-    ]
-  }
-  
+	{
+	  "html": "<a class=\"auto-link h-x-username\" href=\"https://twitter.com/glennjones\">&#x40;glennjones</a> likes <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#javascript&amp;src=hash\">&#x23;javascript</a>",
+	  "account": [
+	    {
+	      "match": "@glennjones",
+	      "username": "glennjones",
+	      "domain": "twitter.com"
+	    }
+	  ],
+	  "category": [
+	    "javascript"
+	  ]
+	}
+	
 
 ## Twitter photo and video link parsing
 The module will parse Twitter photo and video links from the text. It wraps these items in `<a>` tags with classes. Where possible the links are expanded. The text "I like pic.twitter.com/FzYI36MKFN and vine.co/v/b55LOA1dgJU" is parsed into:
 
-  I like <a class=\"auto-link u-photo\" href=\"https://twitter.com/adactio/status/501407682558177282/photo/1\">https://twitter.com/adactio/status/501407682558177282/photo/1</a> and <a class=\"auto-link u-video\" href=\"https://vine.co/v/b55LOA1dgJU\">vine.co&#x2f;v&#x2f;b55LOA1dgJU</a>
-  
+	I like <a class=\"auto-link u-photo\" href=\"https://twitter.com/adactio/status/501407682558177282/photo/1\">https://twitter.com/adactio/status/501407682558177282/photo/1</a> and <a class=\"auto-link u-video\" href=\"https://vine.co/v/b55LOA1dgJU\">vine.co&#x2f;v&#x2f;b55LOA1dgJU</a>
+	
 The parser also provides metadata for media types:
 
-  {
-    "html": "I like <a class=\"auto-link u-photo\" href=\"https://twitter.com/adactio/status/501407682558177282/photo/1\">https://twitter.com/adactio/status/501407682558177282/photo/1</a> and <a class=\"auto-link u-video\" href=\"https://vine.co/v/b55LOA1dgJU\">vine.co&#x2f;v&#x2f;b55LOA1dgJU</a>",
-    "media": [
-      {
-        "match": "pic.twitter.com/FzYI36MKFN",
-        "type": "image",
-        "url": "https://pic.twitter.com/FzYI36MKFN",
-        "expanded": "https://twitter.com/adactio/status/501407682558177282/photo/1"
-      },
-      {
-        "match": "vine.co/v/b55LOA1dgJU",
-        "type": "video",
-        "url": "https://vine.co/v/b55LOA1dgJU"
-      }
-    ]
-  }
+	{
+	  "html": "I like <a class=\"auto-link u-photo\" href=\"https://twitter.com/adactio/status/501407682558177282/photo/1\">https://twitter.com/adactio/status/501407682558177282/photo/1</a> and <a class=\"auto-link u-video\" href=\"https://vine.co/v/b55LOA1dgJU\">vine.co&#x2f;v&#x2f;b55LOA1dgJU</a>",
+	  "media": [
+	    {
+	      "match": "pic.twitter.com/FzYI36MKFN",
+	      "type": "image",
+	      "url": "https://pic.twitter.com/FzYI36MKFN",
+	      "expanded": "https://twitter.com/adactio/status/501407682558177282/photo/1"
+	    },
+	    {
+	      "match": "vine.co/v/b55LOA1dgJU",
+	      "type": "video",
+	      "url": "https://vine.co/v/b55LOA1dgJU"
+	    }
+	  ]
+	}
 
 
 ## URL parsing
 The module will parse any word that looks like a URL. It wraps these items in `<a>` tags with classes. Where possible the links are expanded. The text "I like http://glennjones.net" is parsed into:
 
-  I like <a class=\"auto-link u-url\" href=\"http://glennjones.net\">http://glennjones.net</a>
+	I like <a class=\"auto-link u-url\" href=\"http://glennjones.net\">http://glennjones.net</a>
 
 The parser also provides metadata for URLs:
 
-  {
-    "html": "I like <a class=\"auto-link u-url\" href=\"http://glennjones.net\">http://glennjones.net</a>",
-    "url": [
-      {
-        "match": "http://glennjones.net",
-        "expanded": "http://glennjones.net"
-      }
-    ]
-  }
+	{
+	  "html": "I like <a class=\"auto-link u-url\" href=\"http://glennjones.net\">http://glennjones.net</a>",
+	  "url": [
+	    {
+	      "match": "http://glennjones.net",
+	      "expanded": "http://glennjones.net"
+	    }
+	  ]
+	}
 
 
 ## Email parsing
 The module will parse any word that looks like a email address. It wraps these items in `<a href="mailto:">` tags with classes. The text "Contact me at joe.bloggs@eaxmpla.com" is parsed into:
 
-  Contact me at <a class=\"auto-link u-email\" href=\"mailto:joe.bloggs@eaxmpla.com\">joe.bloggs@eaxmpla.com</a>
+	Contact me at <a class=\"auto-link u-email\" href=\"mailto:joe.bloggs@eaxmpla.com\">joe.bloggs@eaxmpla.com</a>
 
 The parser also provides metadata for URLs:
 
-  {
-    "html": "Contact me at <a class=\"auto-link u-email\" href=\"mailto:joe.bloggs@eaxmpla.com\">joe.bloggs@eaxmpla.com</a>",
-    "email": [
-      {
-        "address": "joe.bloggs@eaxmpla.com",
-        "local": "joe.bloggs",
-        "domain": "eaxmpla.com"
-      }
-    ]
-  }
+	{
+	  "html": "Contact me at <a class=\"auto-link u-email\" href=\"mailto:joe.bloggs@eaxmpla.com\">joe.bloggs@eaxmpla.com</a>",
+	  "email": [
+	    {
+	      "address": "joe.bloggs@eaxmpla.com",
+	      "local": "joe.bloggs",
+	      "domain": "eaxmpla.com"
+	    }
+	  ]
+	}
  
 ## Time parsing
 The module will try and parse any time from natural language. Some examples are:
@@ -149,37 +149,37 @@ The module will try and parse any time from natural language. Some examples are:
 
 For this function to work well you need to provide a `publishedDate`. This should be in the ISO format and where possible have the correct timezone information i.e `2014-05-15T04:10:00-04:00`. The parser will add date and time using the HTML5 `<time>` tag:
 
-  <time class=\"auto-date-discovery\" datetime=\"2014-08-08T16:10:00\">today at 4:10pm</time>
+	<time class=\"auto-date-discovery\" datetime=\"2014-08-08T16:10:00\">today at 4:10pm</time>
 
 The parser also provides metadata for dates:
 
-  {
-    "html": "<time class=\"auto-date-discovery dt-start\" datetime=\"2014-08-08T16:10:00\">today at 4:10pm</time>",
-    "time": [
-      {
-        "start": {
-          "year": 2014,
-          "month": 7,
-          "day": 8,
-          "hour": 16,
-          "minute": 10,
-          "second": 0,
-          "meridiem": "pm"
-        },
-        "startDate": "2014-08-08T15:10:00.000Z",
-        "referenceDate": "2014-08-08T23:00:00.000Z",
-        "text": "today at 4:10pm"
-      }
-    ]
-  }
+	{
+	  "html": "<time class=\"auto-date-discovery dt-start\" datetime=\"2014-08-08T16:10:00\">today at 4:10pm</time>",
+	  "time": [
+	    {
+	      "start": {
+	        "year": 2014,
+	        "month": 7,
+	        "day": 8,
+	        "hour": 16,
+	        "minute": 10,
+	        "second": 0,
+	        "meridiem": "pm"
+	      },
+	      "startDate": "2014-08-08T15:10:00.000Z",
+	      "referenceDate": "2014-08-08T23:00:00.000Z",
+	      "text": "today at 4:10pm"
+	    }
+	  ]
+	}
 
 ## Custom words/term
 You can add words/term to the `options.urls` array and have them linked within the HTML output automatically :
 
-  options.urls": [{
-    "match": "transmat.io",
-    "expanded": "https://transmat.io"
-  }]
+	options.urls": [{
+		"match": "transmat.io",
+		"expanded": "https://transmat.io"
+	}]
 
 
 
@@ -189,15 +189,15 @@ The error format can have any combination of 4 properties; code, error, message 
     
     {
       "statusCode": 400,
-      "error": "Bad Request",
-      "message": "the value of b must be a number",
-      "validation": {
-        "source": "path",
-        "keys": [
-          "b"
-        ]
-      }
-  }
+  		"error": "Bad Request",
+  		"message": "the value of b must be a number",
+  		"validation": {
+    		"source": "path",
+    		"keys": [
+      		"b"
+    		]
+  		}
+	}
 
 
 
