@@ -187,16 +187,16 @@ You can add words/term to the `options.urls` array and have them linked within t
 
 The error format can have any combination of 4 properties; code, error, message and validation. The fourth property validation, is added if a input value is in the incorrect format. 
     
-    {
-      "statusCode": 400,
-      "error": "Bad Request",
-      "message": "the value of b must be a number",
-      "validation": {
-        "source": "path",
-        "keys": [
-          "b"
-        ]
-      }
+  {
+    "statusCode": 400,
+    "error": "Bad Request",
+    "message": "the value of b must be a number",
+    "validation": {
+      "source": "path",
+      "keys": [
+        "b"
+      ]
+    }
   }
 
 
@@ -204,7 +204,7 @@ The error format can have any combination of 4 properties; code, error, message 
 ## Mocha integration test
 The project has a number integration and unit tests. To run the test, `cd` to project directory type the following command
 
-    $ mocha --reporter list
+  $ mocha --reporter list
 
 
 
