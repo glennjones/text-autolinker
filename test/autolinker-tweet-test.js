@@ -62,7 +62,7 @@ describe('autolinker', function(){
 			publishedDate: '2014-08-23T11:00:00Z'
 		};
 		autolinker.parse(options, function(err, result){
-			assert.equal(result.html, 'mixing gnarly basslines <time class="auto-date-discovery" datetime="2014-08-23">today</time> <a class="auto-link u-video" href="https://vine.co/v/b55LOA1dgJU">vine.co&#x2f;v&#x2f;b55LOA1dgJU</a>', 'should convert to html');
+			assert.equal(result.html, 'mixing gnarly basslines <time class="auto-date-discovery dt-start" datetime="2014-08-23">today</time> <a class="auto-link u-video" href="https://vine.co/v/b55LOA1dgJU">vine.co&#x2f;v&#x2f;b55LOA1dgJU</a>', 'should convert to html');
 			assert.equal(result.media[0].match, 'vine.co/v/b55LOA1dgJU', 'should extract url fragment');
 			assert.equal(result.media[0].type, 'video', 'should extract media type image');
 			assert.equal(result.media[0].url, 'https://vine.co/v/b55LOA1dgJU', 'should return full shorten url');
