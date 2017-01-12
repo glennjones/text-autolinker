@@ -1,7 +1,7 @@
 {
   "name": "text-autolinker",
   "author": "Glenn Jones",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "An tool for adding HTML links and tags to plain text",
   "keywords": [
     "text",
