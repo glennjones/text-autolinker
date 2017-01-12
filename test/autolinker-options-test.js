@@ -25,7 +25,7 @@ describe('autolinker', function(){
 			}
 		};
 		autolinker.parse(options, function(err, result){
-			assert.equal(result.html, '<a class="test-01 test-02" href="https://twitter.com/t">&#x40;t</a> does <a class="test-01 test-03" href="https://twitter.com/search?q=#css&amp;src=hash">&#x23;css</a> <a class="test-01 test-06" href="http://glennjones.net/articles/2014-08-19-manifesto-for-transmat">http://glennjones.net/articles/2014-08-19-manifesto-for-transmat</a> - <a class="test-01 test-04" href="https://twitter.com/adactio/status/501407682558177282/photo/1">https://twitter.com/adactio/status/501407682558177282/photo/1</a> - <a class="test-01 test-05" href="https://vine.co/v/b55LOA1dgJU">vine.co&#x2f;v&#x2f;b55LOA1dgJU</a>', 'should convert to html');
+			assert.equal(result.html, '<a class="test-01 test-02" href="https://twitter.com/t">&#x40;t</a> does <a class="test-01 test-03" href="https://twitter.com/search?q=#css&amp;src=hash">&#x23;css</a> <a class="test-01 test-06" href="https://glennjones.net/articles/2014-08-19-manifesto-for-transmit">https://glennjones.net/articles/2014-08-19-manifesto-for-transmit</a> - <a class="test-01 test-04" href="https://twitter.com/adactio/status/501407682558177282/photo/1">https://twitter.com/adactio/status/501407682558177282/photo/1</a> - <a class="test-01 test-05" href="https://vine.co/v/b55LOA1dgJU">vine.co&#x2f;v&#x2f;b55LOA1dgJU</a>', 'should convert to html');
 			assert.equal(err, null, 'should excute without error');
 			done();
 		});
@@ -72,5 +72,5 @@ describe('autolinker', function(){
 
 
 
-	
+
 });

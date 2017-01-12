@@ -4,7 +4,7 @@ var chai			= require('chai'),
 	assert			= chai.assert,
 	autolinker      = require('../lib/autolinker');
 
-// units tests auto link of parsed web addresses autolinker.js 
+// units tests auto link of parsed web addresses autolinker.js
 
 describe('autolinker', function(){
 
@@ -14,8 +14,10 @@ describe('autolinker', function(){
 	it('convert words starting with http:// and https://', function(done){
 		var options = {
 			text: 'http://glennjones.net or https://transmat.io',
+			expandUrls: false
 		};
 		autolinker.parse(options, function(err, result){
+			console.log(result.html)
 			assert.equal(result.html, '<a class=\"auto-link u-url\" href=\"http://glennjones.net\">http://glennjones.net</a> or <a class=\"auto-link u-url\" href=\"https://transmat.io\">https://transmat.io</a>', 'should convert to html');
 			assert.equal(result.url[0].match, 'http://glennjones.net', 'should extract url with http prefix');
 			assert.equal(result.url[1].match, 'https://transmat.io', 'should extract url with https prefix');
@@ -23,6 +25,8 @@ describe('autolinker', function(){
 			done();
 		});
 	});
+
+
 
 
 	it('custom url expanding', function(done){

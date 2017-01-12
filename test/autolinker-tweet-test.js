@@ -4,7 +4,7 @@ var chai			= require('chai'),
 	assert			= chai.assert,
 	autolinker      = require('../lib/autolinker');
 
-// units tests twitter elements autolinker.js 
+// units tests twitter elements autolinker.js
 
 describe('autolinker', function(){
 
@@ -16,6 +16,7 @@ describe('autolinker', function(){
 			text: 'I like #html #javascript #css and #indieweb',
 		};
 		autolinker.parse(options, function(err, result){
+			//console.log(result.html)
 			assert.equal(result.html, 'I like <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#html&amp;src=hash\">&#x23;html</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#javascript&amp;src=hash\">&#x23;javascript</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#css&amp;src=hash\">&#x23;css</a> and <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#indieweb&amp;src=hash\">&#x23;indieweb</a>', 'should convert to html');
 			assert.equal(result.category[0], 'html', 'should extract html hashtag');
 			assert.equal(result.category[3], 'indieweb', 'should extract indieweb hashtag');
@@ -79,5 +80,5 @@ describe('autolinker', function(){
 
 
 
-	
+
 });
