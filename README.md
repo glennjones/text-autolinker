@@ -24,7 +24,7 @@ Converts text into HTML, by automatically linking the URLs and twitter elements 
 
 ## Use
 
-    var autolinker = require('autolinker');
+    var autolinker = require('text-autolinker');
     var options = {
       text: 'Meeting @glennjones today at 4:10pm',
       publishedDate: '2014-08-08'
