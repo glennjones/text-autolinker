@@ -1,4 +1,7 @@
 ## text-autolinker
+
+__This is a 9-year-old historical project - It is left up as an archive.__
+
 Converts text into HTML, by automatically linking the URLs and twitter elements such as username and hashtags.
 
  - Twitter `@usersname` and `#hashtags` into  `<a>` links
